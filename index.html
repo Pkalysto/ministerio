@@ -2,6 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ministério das Coisas Boas</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -19,11 +20,12 @@
 
     .container {
       background: #fff;
-      padding: 40px;
+      padding: 40px 20px;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 500px;
+      width: 90%;
+      max-width: 480px;
       animation: fadeIn 1s ease forwards;
       position: relative;
       z-index: 10;
@@ -53,12 +55,12 @@
     h1 {
       font-family: 'Pacifico', cursive;
       color: #b23b6b;
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #5e3b4e;
       margin: 15px 0;
     }
@@ -120,16 +122,18 @@
   </style>
 </head>
 <body>
-  <audio autoplay loop>
+  <!-- Música escondida -->
+  <audio id="musicaFundo" loop>
     <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_32f3d7a548.mp3?filename=romantic-day-110094.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
+  <!-- Emojis flutuantes -->
   <div class="emoji" style="top:10%; left:15%;">🎉</div>
   <div class="emoji" style="top:30%; left:70%;">💖</div>
   <div class="emoji" style="top:50%; left:40%;">🎈</div>
   <div class="emoji" style="top:20%; left:80%;">✨</div>
 
+  <!-- Conteúdo principal -->
   <div class="container">
     <h1 class="fade-in delay-1">Ministério das Coisas Boas</h1>
     <p class="fade-in delay-2">Convocatória especial:</p>
@@ -144,9 +148,17 @@
     function aceitarNomeacao() {
       const btn = document.querySelector('.button');
       const msg = document.getElementById('final-message');
+      const audio = document.getElementById('musicaFundo');
+
+      // Mostrar mensagem final
       btn.style.display = 'none';
       msg.innerText = 'Nomeação confirmada. Agora só falta uma assinatura ao vivo. 😄';
       msg.style.display = 'block';
+
+      // Tocar música com interação
+      audio.play().catch(() => {
+        console.log("A reprodução automática falhou.");
+      });
     }
   </script>
 </body>
