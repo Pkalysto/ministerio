@@ -27,19 +27,38 @@
       animation: fadeIn 1s ease forwards;
     }
 
+    h1, p, .button, #final-message {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .fade-in {
+      animation: fadeInUp 1s forwards;
+    }
+    .delay-1 { animation-delay: 0.5s; }
+    .delay-2 { animation-delay: 1s; }
+    .delay-3 { animation-delay: 1.5s; }
+    .delay-4 { animation-delay: 2s; }
+    .delay-5 { animation-delay: 2.5s; }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     h1 {
       font-family: 'Pacifico', cursive;
       color: #b23b6b;
       font-size: 2.8rem;
       margin-bottom: 10px;
-      opacity: 0;
     }
 
     p {
       font-size: 1.2rem;
       color: #5e3b4e;
       margin: 15px 0;
-      opacity: 0;
     }
 
     .assinatura {
@@ -47,19 +66,6 @@
       color: #a13a60;
       font-weight: bold;
     }
-
-    .fade-in {
-      animation: fadeIn 1.5s forwards;
-    }
-
-    .slide-up {
-      transform: translateY(20px);
-      animation: slideUp 1s forwards;
-    }
-
-    .delay-1 { animation-delay: 0.5s; }
-    .delay-2 { animation-delay: 1s; }
-    .delay-3 { animation-delay: 1.5s; }
 
     .button {
       margin-top: 25px;
@@ -70,9 +76,16 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 2s;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.1s ease, background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #972c56;
+    }
+
+    .button:active {
+      transform: scale(0.98);
     }
 
     #final-message {
@@ -81,30 +94,35 @@
       font-size: 1.2rem;
       color: #2e7d32;
       font-weight: 600;
+      animation: popIn 0.6s ease forwards;
     }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 class="fade-in">Ministério das Coisas Boas</h1>
-    <p class="slide-up">Convocatória especial:</p>
-    <p class="slide-up delay-1">Para a Rute — responsável por boas energias, sorrisos inesperados e festas bem organizadas.</p>
-    <p class="slide-up delay-2">Esta é uma nomeação não oficial… mas 100% merecida. 😉</p>
-    <p class="assinatura slide-up delay-3">— Paulo</p>
-    <button class="button" onclick="document.getElementById('final-message').style.display = 'block'; this.style.display = 'none';">Aceitar nomeação</button>
-    <div id="final-message">Nomeação confirmada. Agora só falta uma assinatura ao vivo. 😄</div>
+    <h1 class="fade-in delay-1">Ministério das Coisas Boas</h1>
+    <p class="fade-in delay-2">Convocatória especial:</p>
+    <p class="fade-in delay-3">Para a Rute — responsável por boas energias, sorrisos inesperados e festas bem organizadas.</p>
+    <p class="fade-in delay-4">Esta é uma nomeação não oficial… mas 100% merecida. 😉</p>
+    <p class="assinatura fade-in delay-5">— Paulo</p>
+    <button class="button fade-in delay-5" onclick="aceitarNomeacao()">Aceitar nomeação</button>
+    <div id="final-message"></div>
   </div>
+
+  <script>
+    function aceitarNomeacao() {
+      const btn = document.querySelector('.button');
+      const msg = document.getElementById('final-message');
+      btn.style.display = 'none';
+      msg.innerText = 'Nomeação confirmada. Agora só falta uma assinatura ao vivo. 😄';
+      msg.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
 
