@@ -25,7 +25,7 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
       text-align: center;
       width: 90%;
-      max-width: 480px;
+      max-width: 500px;
       animation: fadeIn 1s ease forwards;
       position: relative;
       z-index: 10;
@@ -119,22 +119,28 @@
       50% { transform: translateY(-50px) translateX(20px); }
       100% { transform: translateY(0) translateX(0); }
     }
+
+    .banner {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <!-- Música escondida -->
   <audio id="musicaFundo" loop>
     <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_32f3d7a548.mp3?filename=romantic-day-110094.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
-  <!-- Emojis flutuantes -->
   <div class="emoji" style="top:10%; left:15%;">🎉</div>
   <div class="emoji" style="top:30%; left:70%;">💖</div>
   <div class="emoji" style="top:50%; left:40%;">🎈</div>
   <div class="emoji" style="top:20%; left:80%;">✨</div>
 
-  <!-- Conteúdo principal -->
   <div class="container">
+    <img src="https://pkalysto.github.io/ministerio/img/banner.png" alt="Capa do Ministério" class="banner">
     <h1 class="fade-in delay-1">Ministério das Coisas Boas</h1>
     <p class="fade-in delay-2">Convocatória especial:</p>
     <p class="fade-in delay-3">Para a Rute — responsável por boas energias, sorrisos inesperados e festas bem organizadas.</p>
@@ -149,17 +155,12 @@
       const btn = document.querySelector('.button');
       const msg = document.getElementById('final-message');
       const audio = document.getElementById('musicaFundo');
-
-      // Mostrar mensagem final
       btn.style.display = 'none';
       msg.innerText = 'Nomeação confirmada. Agora só falta uma assinatura ao vivo. 😄';
       msg.style.display = 'block';
-
-      // Tocar música com interação
-      audio.play().catch(() => {
-        console.log("A reprodução automática falhou.");
-      });
+      audio.play().catch(() => console.log("Autoplay bloqueado"));
     }
   </script>
 </body>
 </html>
+
