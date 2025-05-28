@@ -31,7 +31,7 @@
       z-index: 10;
     }
 
-    h1, p, .button, #final-message {
+    h1, h2, p, .button, #final-message {
       opacity: 0;
       transform: translateY(20px);
     }
@@ -39,6 +39,7 @@
     .fade-in {
       animation: fadeInUp 1s forwards;
     }
+    .delay-0 { animation-delay: 0.3s; }
     .delay-1 { animation-delay: 0.5s; }
     .delay-2 { animation-delay: 1s; }
     .delay-3 { animation-delay: 1.5s; }
@@ -57,6 +58,12 @@
       color: #b23b6b;
       font-size: 2.5rem;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #b23b6b;
+      margin-top: 20px;
     }
 
     p {
@@ -119,13 +126,6 @@
       50% { transform: translateY(-50px) translateX(20px); }
       100% { transform: translateY(0) translateX(0); }
     }
-
-    .banner {
-      width: 100%;
-      max-width: 480px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-    }
   </style>
 </head>
 <body>
@@ -140,12 +140,16 @@
   <div class="emoji" style="top:20%; left:80%;">✨</div>
 
   <div class="container">
-    <img src="https://pkalysto.github.io/ministerio/img/banner.png" alt="Capa do Ministério" class="banner">
-    <h1 class="fade-in delay-1">Ministério das Coisas Boas</h1>
-    <p class="fade-in delay-2">Convocatória especial:</p>
-    <p class="fade-in delay-3">Para a Rute — responsável por boas energias, sorrisos inesperados e festas bem organizadas.</p>
+    <h2 class="fade-in delay-0">Bem-vinda ao Governo do Bem-Estar 💼✨</h2>
+    <p class="fade-in delay-1">Depois de cuidadosa análise, foste nomeada:</p>
+    <p class="fade-in delay-2"><strong>Ministra das Tardes Boas com Sangria & Risos</strong></p>
+    <p class="fade-in delay-3">Missão: garantir que o verão corre com charme, festa e boas memórias.</p>
+
+    <h1 class="fade-in delay-4">Ministério das Coisas Boas</h1>
+    <p class="fade-in delay-4">Convocatória especial:</p>
+    <p class="fade-in delay-4">Para a Rute — responsável por boas energias, sorrisos inesperados e festas bem organizadas.</p>
     <p class="fade-in delay-4">Esta é uma nomeação não oficial… mas 100% merecida. 😉</p>
-    <p class="assinatura fade-in delay-5">— Paulo</p>
+    <p class="assinatura fade-in delay-4">— Paulo</p>
     <button class="button fade-in delay-5" onclick="aceitarNomeacao()">Aceitar nomeação</button>
     <div id="final-message"></div>
   </div>
@@ -163,4 +167,3 @@
   </script>
 </body>
 </html>
-
